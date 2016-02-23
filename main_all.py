@@ -14,7 +14,8 @@ class Tool:
 		self.checkHref = self.rootUrl + cityName + '/'
 		self.blUrlModle = 'http://'+cityName+'.anjuke.com/community/view/'
 		self.cityName = cityName
-		self.cityNameCh = u'武汉市'
+		self.cityNameCh = u'泉州市'
+		self.cityCode = '350500'
 		self.ak = 'Dhq3LWe6Kt6SFOhhtbAE09td'
 		self.l1 = 'l1='
 		self.l2 = 'l2='
@@ -167,24 +168,25 @@ class Tool:
 		row1.write(0,u'城市')
 		row1.write(1,u'行政区')
 		row1.write(2,u'小区名')
-		row1.write(3,'bd_uid')
-		row1.write(4,u'纬度')
-		row1.write(5,u'经度')
-		row1.write(6,u'房价(元／平方)')
-		row1.write(7,u'小区名')
-		row1.write(8,u'板块名')
-		row1.write(9,u'地址')
-		row1.write(10,u'开发商')
-		row1.write(11,u'物业公司')
-		row1.write(12,u'物业类型')
-		row1.write(13,u'物业费用')
-		row1.write(14,u'总建筑面积')
-		row1.write(15,u'总户数')
-		row1.write(16,u'建造年代')
-		row1.write(17,u'容积率')
-		row1.write(18,u'出租率')
-		row1.write(19,u'停车位')
-		row1.write(20,u'绿化率')
+		row1.write(3,'city_code')
+		row1.write(4,'bd_uid')
+		row1.write(5,u'纬度')
+		row1.write(6,u'经度')
+		row1.write(7,u'房价(元／平方)')
+		row1.write(8,u'小区名')
+		row1.write(9,u'板块名')
+		row1.write(10,u'地址')
+		row1.write(11,u'开发商')
+		row1.write(12,u'物业公司')
+		row1.write(13,u'物业类型')
+		row1.write(14,u'物业费用')
+		row1.write(15,u'总建筑面积')
+		row1.write(16,u'总户数')
+		row1.write(17,u'建造年代')
+		row1.write(18,u'容积率')
+		row1.write(19,u'出租率')
+		row1.write(20,u'停车位')
+		row1.write(21,u'绿化率')
 		print areas
 		for area in areas:            #行政区
 			href = area.get('href')
@@ -211,7 +213,7 @@ class Tool:
 								location = self.getEstatesBL(cmCode,0) #小区经纬度
 								uid = self.getuidFromBaiduApi(location)
 								
-								resultStr = "%s %s %s %s %s" % (self.cityNameCh,areaName,district.string,uid,blValue)
+								resultStr = "%s %s %s %s %s" % (self.cityNameCh,areaName,district.string,self.cityCode,uid,blValue)
 								resultList = resultStr.split(' ')
 								cell = 0
 								for result in resultList:
@@ -230,7 +232,7 @@ class Tool:
     
 
 
-spider = Tool('wuhan')  #hangzhou  #xm
+spider = Tool('quanzhou')  #hangzhou  #xm #beijing #wuhan 
 spider.start()
 
 
