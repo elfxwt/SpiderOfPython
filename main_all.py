@@ -213,7 +213,7 @@ class Tool:
 								location = self.getEstatesBL(cmCode,0) #小区经纬度
 								uid = self.getuidFromBaiduApi(location)
 								
-								resultStr = "%s %s %s %s %s" % (self.cityNameCh,areaName,district.string,self.cityCode,uid,blValue)
+								resultStr = "%s %s %s %s %s %s" % (self.cityNameCh,areaName,district.string,self.cityCode,uid,blValue)
 								resultList = resultStr.split(' ')
 								cell = 0
 								for result in resultList:
